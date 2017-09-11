@@ -13,13 +13,13 @@
                 <i class="fa fa-linkedin-square"></i>
             </span>
         </a>
-        <div class="navbar-burger">
+        <div class="navbar-burger" data-target="Options">
             <span></span>
             <span></span>
             <span></span>
         </div>
     </div>
-    <div class="navbar-menu">
+    <div class="navbar-menu" id="Options">
         <div class="navbar-start">
             <a class="navbar-item" href="projects.php">
                 Projects
