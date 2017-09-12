@@ -1,3 +1,6 @@
+<?php
+    include('resource/login.php');
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,7 +19,7 @@
                         <div class="field">
                             <label class="label">Username</label>
                             <div class="control has-icons-left">
-                                <input class="input" type="username" placeholder="">
+                                <input class="input" type="text" name="username" placeholder="">
                                 <span class="icon is-small is-left">
                                     <i class="fa fa-user"></i>
                                 </span>
@@ -25,7 +28,7 @@
                         <div class="field">
                             <label class="label">Password</label>
                             <div class="control has-icons-left">
-                                <input class="input" type="password" placeholder="">
+                                <input class="input" type="password" name="password" placeholder="">
                                 <span class="icon is-small is-left">
                                     <i class="fa fa-lock"></i>
                                 </span>
