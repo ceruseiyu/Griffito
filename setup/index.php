@@ -1,6 +1,6 @@
 <?php
 function getSalt() {
-    return bin2hex(openssl_random_pseudo_bytes(8));
+    return bin2hex(openssl_random_pseudo_bytes(4));
 }
 
 if (!file_exists('lock.txt')) {   
@@ -11,12 +11,13 @@ if (!file_exists('lock.txt')) {
         } else {
             require('../resource/db.php');
             
-            $rawpass = $_POST['username'];
+            $password = $_POST['password'];
             $password = stripslashes($password);
             $password = $db->escape_string($password);
             $password = hash('sha256', $password);
             $salt = getSalt();
-            $password = hash('sha256', $password . $salt);
+            $password .= $salt;
+            $password = hash('sha256', $password);
             
             $createTable = "CREATE TABLE Users(username VARCHAR(50) NOT NULL, password VARCHAR(64) NOT NULL, salt VARCHAR(8) NOT NULL, PRIMARY KEY(username));";
             $insertAdmin = "INSERT INTO Users VALUES('admin', '".$password."', '".$salt."');";

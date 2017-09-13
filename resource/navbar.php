@@ -42,18 +42,7 @@
                     <i class="fa fa-linkedin-square"></i>
                 </span>
             </a>
-            <div class="navbar-item">
-                <div class="field is-grouped">
-                    <p class="control">
-                        <a class="button" href="login.php">
-                            <span class="icon">
-                                <i class="fa fa-sign-in"></i>
-                            </span>
-                            <span>Log in</span>
-                        </a>
-                    </p>
-                </div>
-            </div>
+            <?php require('navuser.php'); ?>
         </div>
     </div>
 </nav>
