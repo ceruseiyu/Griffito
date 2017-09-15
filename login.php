@@ -1,5 +1,5 @@
 <?php
-    include('resource/login.php');
+    include('resource/loginscript.php');
 ?>
 <!DOCTYPE html>
 <html>

@@ -1,7 +1,5 @@
 <?php
-function getSalt() {
-    return bin2hex(openssl_random_pseudo_bytes(4));
-}
+require('../resource/password.php');
 
 if (!file_exists('lock.txt')) {   
     require('../resource/setupform.php');
@@ -14,10 +12,11 @@ if (!file_exists('lock.txt')) {
             $password = $_POST['password'];
             $password = stripslashes($password);
             $password = $db->escape_string($password);
-            $password = hash('sha256', $password);
             $salt = getSalt();
+            $password = hashPass($password, $salt);
+            /*$password = hash('sha256', $password);
             $password .= $salt;
-            $password = hash('sha256', $password);
+            $password = hash('sha256', $password);*/
             
             $createTable = "CREATE TABLE Users(username VARCHAR(50) NOT NULL, password VARCHAR(64) NOT NULL, salt VARCHAR(8) NOT NULL, PRIMARY KEY(username));";
             $insertAdmin = "INSERT INTO Users VALUES('admin', '".$password."', '".$salt."');";
